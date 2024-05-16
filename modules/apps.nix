@@ -19,12 +19,13 @@
   environment.systemPackages = with pkgs; [
     # neovim
     # git
+    nixpkgs-fmt
   ];
   environment.variables.EDITOR = "nvim";
 
 
   homebrew = {
-    enable = true; 
+    enable = true;
 
     onActivation = {
       autoUpdate = true;
@@ -35,9 +36,15 @@
     taps = [
     ];
     brews = [
+      "pnpm"
+      "nvm"
     ];
     casks = [
       "font-victor-mono-nerd-font"
+      "visual-studio-code"
+      "google-chrome"
+      "warp"
+      "raycast"
     ];
 
   };

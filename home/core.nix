@@ -28,7 +28,7 @@
       icons = true;
     };
 
-     # A command-line fuzzy finder
+    # A command-line fuzzy finder
     fzf = {
       enable = true;
       # https://github.com/catppuccin/fzf
@@ -49,7 +49,7 @@
       };
     };
 
-      # a cat(1) clone with syntax highlighting and Git integration.
+    # a cat(1) clone with syntax highlighting and Git integration.
     bat = {
       enable = true;
       config = {
