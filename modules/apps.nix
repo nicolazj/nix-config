@@ -22,4 +22,24 @@
   ];
   environment.variables.EDITOR = "nvim";
 
+
+  homebrew = {
+    enable = true; 
+
+    onActivation = {
+      autoUpdate = true;
+      # 'zap': uninstalls all formulae(and related files) not listed in the generated Brewfile
+      cleanup = "zap";
+    };
+
+    taps = [
+    ];
+    brews = [
+    ];
+    casks = [
+      "font-victor-mono-nerd-font"
+    ];
+
+  };
+
 }
