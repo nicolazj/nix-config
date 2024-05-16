@@ -59,7 +59,7 @@
       modules = [
         ./modules/nix-core.nix
         ./modules/system.nix
-        # ./modules/apps.nix
+        ./modules/apps.nix
         # ./modules/homebrew-mirror.nix # comment this line if you don't need a homebrew mirror
         # ./modules/host-users.nix
 
