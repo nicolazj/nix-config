@@ -38,6 +38,7 @@
     brews = [
       "pnpm"
       "nvm"
+      "watchman"
     ];
     casks = [
       "font-victor-mono-nerd-font"
@@ -47,6 +48,10 @@
       "raycast"
     ];
 
-  };
+    masApps = {
+      Xcode = 497799835;
 
+    };
+
+  };
 }
