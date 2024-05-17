@@ -46,6 +46,7 @@
       "google-chrome"
       "warp"
       "raycast"
+      "proxyman"
     ];
 
     masApps = {
