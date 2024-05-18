@@ -27,6 +27,10 @@
       enableScriptingAddition = true;
       extraConfig = builtins.readFile ./yabairc;
     };
+    skhd = {
+      enable = true;
+      skhdConfig = builtins.readFile ./skhdrc;
+    };
   };
 
 
