@@ -17,9 +17,7 @@
   #
   # Related Discussion: https://discourse.nixos.org/t/darwin-again/29331
   environment.systemPackages = with pkgs; [
-    # neovim
-    # git
-    nixpkgs-fmt
+    nixpkgs-fmt  
   ];
   environment.variables.EDITOR = "nvim";
 
