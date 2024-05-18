@@ -17,9 +17,6 @@
   users.users."${username}" = {
     home = "/Users/${username}";
     description = username;
-    packages = with pkgs ;[
-      yabai
-    ];
   };
 
   nix.settings.trusted-users = [ username ];

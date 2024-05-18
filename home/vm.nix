@@ -1,45 +1,36 @@
-{ config, pkgs, ... }:
-{
-  services.yabai.enable = true;
-  services.yabai.package = pkgs.yabai;
-  services.yabai.enableScriptingAddition = false;
-  services.yabai.extraConfig = ''
-    yabai -m config status_bar                   off
-    yabai -m config status_bar_text_font         "Helvetica Neue:Bold:12.0"
-    yabai -m config status_bar_icon_font         "FontAwesome:Regular:12.0"
-    yabai -m config status_bar_background_color  0xff202020
-    yabai -m config status_bar_foreground_color  0xffa8a8a8
-    yabai -m config status_bar_space_icon_strip  I II III IV V VI VII VIII IX X
-    yabai -m config status_bar_power_icon_strip   
-    yabai -m config status_bar_space_icon        
-    yabai -m config status_bar_clock_icon        
+{ pkgs, ... }:{
+  # services.yabai.enable = true;
+  # services.yabai.package = pkgs.yabai;
+  # services.yabai.enableScriptingAddition = true;
 
-    yabai -m config mouse_follows_focus          off
-    yabai -m config focus_follows_mouse          on
-    yabai -m config window_placement             first_child
-    yabai -m config window_topmost               off
-    yabai -m config window_opacity               off
-    yabai -m config window_opacity_duration      0.0
-    yabai -m config window_shadow                on
-    yabai -m config window_border                off
-    yabai -m config window_border_width          4
-    yabai -m config active_window_border_color   0xff775759
-    yabai -m config normal_window_border_color   0xff505050
-    yabai -m config insert_window_border_color   0xffd75f5f
-    yabai -m config active_window_opacity        1.0
-    yabai -m config normal_window_opacity        0.90
-    yabai -m config split_ratio                  0.50
-    yabai -m config auto_balance                 off
-    yabai -m config mouse_modifier               fn
-    yabai -m config mouse_action1                move
-    yabai -m config mouse_action2                resize
-    
-    yabai -m config layout                       bsp
-    yabai -m config top_padding                  38
-    yabai -m config bottom_padding               20
-    yabai -m config left_padding                 20
-    yabai -m config right_padding                20
-    yabai -m config window_gap                   10
-    yabai -m rule --add app="choose" manage=off
-  '';
+
+  services.yabai = {
+    enable = true;
+    # temporary workaround for https://github.com/ryan4yin/nix-config/issues/51
+    package = pkgs.yabai.overrideAttrs (oldAttrs: rec {
+      version = "6.0.7";
+      src =
+        if pkgs.stdenv.isAarch64
+        then
+          (pkgs.fetchzip {
+            url = "https://github.com/koekeishiya/yabai/releases/download/v${version}/yabai-v${version}.tar.gz";
+            hash = "sha256-hZMBXSCiTlx/37jt2yLquCQ8AZ2LS3heIFPKolLub1c=";
+          })
+        else
+          (pkgs.fetchFromGitHub {
+            owner = "koekeishiya";
+            repo = "yabai";
+            rev = "v${version}";
+            hash = "sha256-vWL2KA+Rhj78I2J1kGItJK+OdvhVo1ts0NoOHIK65Hg=";
+          });
+    });
+
+    # Whether to enable yabai's scripting-addition.
+    # SIP must be disabled for this to work.
+    # https://github.com/koekeishiya/yabai/wiki/Disabling-System-Integrity-Protection
+    enableScriptingAddition = true;
+    # config = {};
+    extraConfig = builtins.readFile ./yabairc;
+  };
+
 }
