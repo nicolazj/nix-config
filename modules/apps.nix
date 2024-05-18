@@ -17,9 +17,17 @@
   #
   # Related Discussion: https://discourse.nixos.org/t/darwin-again/29331
   environment.systemPackages = with pkgs; [
-    nixpkgs-fmt  
+    nixpkgs-fmt
   ];
   environment.variables.EDITOR = "nvim";
+
+  services = {
+    yabai = {
+      enable = true;
+      enableScriptingAddition = true;
+      extraConfig = builtins.readFile ./yabairc;
+    };
+  };
 
 
   homebrew = {

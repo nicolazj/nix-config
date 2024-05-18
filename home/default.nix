@@ -7,7 +7,6 @@
     ./core.nix
     ./git.nix
     ./starship.nix
-    ./vm.nix
   ];
 
   # Home Manager needs a bit of information about you and the
