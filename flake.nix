@@ -66,11 +66,7 @@
       darwinConfigurations."${hostname}" = nix-darwin.lib.darwinSystem {
         inherit system specialArgs;
         modules = [
-          ./modules/nix-core.nix
-          ./modules/system.nix
-          ./modules/apps.nix
-          ./modules/host-users.nix
-
+          ./darwin.nix
           # home manager
           home-manager.darwinModules.home-manager
           {
