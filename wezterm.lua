@@ -21,6 +21,4 @@ config.tab_bar_at_bottom = false
 
 
 
-
-
 return config

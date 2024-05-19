@@ -1,4 +1,4 @@
-{ lib, username, useremail,... }:
+{ lib, username, useremail, ... }:
 
 {
 
@@ -19,10 +19,6 @@
     stateVersion = "23.11";
 
     shellAliases = { };
-
-    activation.removeExistingGitconfig = lib.hm.dag.entryBefore [ "checkLinkTargets" ] ''
-      rm -f ~/.gitconfig
-    '';
 
   };
 
@@ -87,6 +83,9 @@
 
     # A command-line fuzzy finder
     fzf = {
+      enable = true;
+    };
+    skim = {
       enable = true;
     };
 
