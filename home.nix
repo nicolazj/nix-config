@@ -32,6 +32,22 @@
       enableCompletion = true;
       initExtra = builtins.readFile ./zshrc;
 
+      prezto = {
+        enable = true;
+        pmodules = [
+          "environment"
+          "terminal"
+          "editor"
+          "history"
+          "directory"
+          "spectrum"
+          "utility"
+          "completion"
+          "autosuggestions"
+        ];
+
+      };
+
     };
 
     git = {
