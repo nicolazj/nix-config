@@ -53,10 +53,27 @@
       finder = {
         _FXShowPosixPathInTitle = true; # show full path in finder title
         AppleShowAllExtensions = true; # show all file extensions
+        AppleShowAllFiles = true;
         FXEnableExtensionChangeWarning = false; # disable warning when changing file extension
         QuitMenuItem = true; # enable quit menu item
         ShowPathbar = true; # show path bar
         ShowStatusBar = true; # show status bar
+      };
+      NSGlobalDomain = {
+        AppleShowAllFiles = true;
+      };
+      CustomUserPreferences = {
+        "com.apple.finder" = {
+          AppleShowAllFiles = true;
+          ShowExternalHardDrivesOnDesktop = true;
+          ShowHardDrivesOnDesktop = true;
+          ShowMountedServersOnDesktop = true;
+          ShowRemovableMediaOnDesktop = true;
+          _FXSortFoldersFirst = true;
+          # When performing a search, search the current folder by default
+          FXDefaultSearchScope = "SCcf";
+        };
+
       };
     };
   };
@@ -110,12 +127,13 @@
       "watchman"
     ];
     casks = [
-      "font-victor-mono-nerd-font"
+      "font-jetbrains-mono-nerd-font"
       "visual-studio-code"
       "google-chrome"
-      "warp"
+      "microsoft-edge"
       "raycast"
       "proxyman"
+      "ollama"
     ];
 
     masApps = {

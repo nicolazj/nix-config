@@ -90,13 +90,6 @@
     };
 
 
-
-    neovim = {
-      enable = true;
-      defaultEditor = true;
-      vimAlias = true;
-    };
-
     # A command-line fuzzy finder
     fzf = {
       enable = true;
@@ -104,10 +97,8 @@
     skim = {
       enable = true;
     };
-
-    wezterm = {
+    ripgrep = {
       enable = true;
-      extraConfig = builtins.readFile ./wezterm.lua;
     };
 
   };
