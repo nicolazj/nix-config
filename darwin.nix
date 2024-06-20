@@ -78,11 +78,8 @@
     };
   };
 
-  # Add ability to used TouchID for sudo authentication
   security.pam.enableSudoTouchIdAuth = true;
 
-  # Create /etc/zshrc that loads the nix-darwin environment.
-  # this is required if you want to use darwin's default shell - zsh
   programs.zsh.enable = true;
   environment = {
     shells = [
@@ -99,15 +96,6 @@
 
   services = {
     nix-daemon.enable = true;
-    yabai = {
-      enable = true;
-      enableScriptingAddition = true;
-      extraConfig = builtins.readFile ./yabairc;
-    };
-    skhd = {
-      enable = true;
-      skhdConfig = builtins.readFile ./skhdrc;
-    };
   };
 
 
@@ -120,6 +108,7 @@
     };
 
     taps = [
+      "mrkai77/cask"
     ];
     brews = [
       "pnpm"
@@ -134,6 +123,8 @@
       "raycast"
       "proxyman"
       "ollama"
+      "warp"
+      "loop"
     ];
 
     masApps = {
